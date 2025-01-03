@@ -25,8 +25,8 @@ CHECK_ROOT(){
 
     if [ $USERID -ne 0 ]
     then
-         echo "ERROR:: you must have access to execute this script"
-         exit 1
+        echo "ERROR:: you must have access to execute this script"
+        exit 1
     fi
 }
 echo "script started executing at : $TIMESTAMP" &>>$LOG_FILE_NAME
