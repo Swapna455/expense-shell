@@ -12,21 +12,21 @@ TIMESTAMP=$(date +%Y-%m=%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 VALIDATE(){
-    if [$1 -ne 0]
+    if [ $1 -ne 0 ]
     then
-    echo -e "$2 ... $R FAILURE $N"
-    exit 1
+        echo -e "$2 ... $R FAILURE $N"
+        exit 1
     else
-    echo -e "$2 ... $G SUCCESS $N"
+        echo -e "$2 ... $G SUCCESS $N"
     fi
 
 }
 CHECK_ROOT(){
 
-    if [$USERID -ne 0]
+    if [ $USERID -ne 0 ]
     then
-    echo "ERROR:: you must have access to execute this script"
-    exit 1
+         echo "ERROR:: you must have access to execute this script"
+         exit 1
     fi
 }
 
