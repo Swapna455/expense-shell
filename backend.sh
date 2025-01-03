@@ -12,6 +12,7 @@ TIMESTAMP=$(date +%Y-%m=%d-%H-%M-%S)
 LOG_FILE_NAME="$LOGS_FOLDER/$LOG_FILE-$TIMESTAMP.log"
 
 VALIDATE(){
+    
     if [ $1 -ne 0 ]
     then
         echo -e "$2 ... $R FAILURE $N"
@@ -76,7 +77,7 @@ mysql -h mysql.sdaws82s.online -uroot -pExpenseApp@1 < /app/schema/backend.sql  
 VALIDATE $? "setting up the transaction schema and tables"
 
 systemctl daemon-reload  &>>$LOG_FILE_NAME
-VALIDATE $?"Daemon Reload"
+VALIDATE $? "Daemon Reload"
 
 systemctl enable backend  &>>$LOG_FILE_NAME
 VALIDATE $? "enabling backend"
