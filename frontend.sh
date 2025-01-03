@@ -54,8 +54,12 @@ VALIDATE $? "Downloading latest code"
 cd /usr/share/nginx/html
 VALIDATE $? "Moving to HTML directory"
 
+
 unzip /tmp/frontend.zip  &>>$LOG_FILE_NAME
 VALIDATE $? "unzipping to frontend code"
+
+cp /home/ec2-user/expense-shell/expense.conf /etc/nginx/default.d/expense.conf
+VALIDATE $? "copied expense config"
 
 systemctl restart nginx  &>>$LOG_FILE_NAME
 VALIDATE $? "Restarting nginx server"
